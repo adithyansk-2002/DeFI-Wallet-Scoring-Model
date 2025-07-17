@@ -10,11 +10,14 @@ This project assigns a **credit score (0–1000)** to wallets based on historica
 aave-credit-score/
 │
 ├── score_generator.py       # Main scoring script
+├── graph.py                 # Script to generate score distribution plot
 ├── README.md                # Project overview
 ├── analysis.md              # Score analysis & distribution
 ├── requirements.txt         # Python dependencies
+├── wallet_scores.csv        # Output: wallet credit scores
 └── data/
     └── user-wallet-transactions.json  # Input transaction data
+    └── Figure_1.png                   # Score distribution histogram
 ```
 
 ---
@@ -70,6 +73,14 @@ pip install -r requirements.txt
 python score_generator.py --input data/user-wallet-transactions.json --output wallet_scores.csv
 ```
 
+### Generate Distribution Graph
+
+```bash
+python graph.py
+```
+
+This saves `Figure_1.png` in the `data/` folder.
+
 ---
 
 ## Output
@@ -77,6 +88,7 @@ python score_generator.py --input data/user-wallet-transactions.json --output wa
 - `wallet_scores.csv` – contains two columns:
   - `wallet`: wallet address
   - `credit_score`: score between 0 and 1000
+- `Figure_1.png` – histogram of score distribution
 
 ---
 
@@ -93,5 +105,4 @@ To improve the scoring model:
 
 - Use time-based features (e.g., recency, streaks)
 - Include protocol-native parameters (e.g., LTV, health factor)
-- Train a supervised ML model with labeled default/bot accounts
-
+- Train a supervised ML model with labeled default/bot accounts 
