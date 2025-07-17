@@ -78,7 +78,7 @@ def main(input_path, output_path):
     df_scored = score_wallets(df_features)
 
     df_scored[['wallet', 'credit_score']].to_csv(output_path, index=False)
-    print(f"✅ Wallet scores saved to {output_path}")
+    print(f"Wallet scores saved to {output_path}")
 
 
 if __name__ == '__main__':
